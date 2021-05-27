@@ -1,10 +1,6 @@
 import React from 'react';
 
 const EmployeeTable = ({ employees, handleSort }) => {
-console.log(employees);
-  // sort.sortByAge(employees);
-  // console.log(employees);
-
   return (
     <table>
       <thead>
@@ -12,24 +8,24 @@ console.log(employees);
           <th>Picture</th>
           <th>First <button onClick={event => handleSort(event)} name="first">v</button></th>
           <th>Last <button onClick={event => handleSort(event)} name="last">v</button></th>
-          <th>Gender</th>
+          <th>Gender <button onClick={event => handleSort(event)} name="last">v</button></th>
           <th>DOB</th>
-          <th>Age</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Cell</th>
-          <th>Street</th>
-          <th>City</th>
-          <th>State</th>
-          <th>Country</th>
-          <th>Postal</th>
+          <th>Age <button onClick={event => handleSort(event)} name="age">v</button></th>
+          <th>Email <button onClick={event => handleSort(event)} name="email">v</button></th>
+          <th>Phone <button onClick={event => handleSort(event)} name="phone">v</button></th>
+          <th>Cell <button onClick={event => handleSort(event)} name="cell">v</button></th>
+          <th>Street <button onClick={event => handleSort(event)} name="street">v</button></th>
+          <th>City <button onClick={event => handleSort(event)} name="city">v</button></th>
+          <th>State <button onClick={event => handleSort(event)} name="state">v</button></th>
+          <th>Country <button onClick={event => handleSort(event)} name="country">v</button></th>
+          <th>Postal <button onClick={event => handleSort(event)} name="postal">v</button></th>
           <th>Timezone</th>
-          <th>Username</th>
+          <th>Username <button onClick={event => handleSort(event)} name="username">v</button></th>
         </tr>
       </thead>
-      {employees.map(user => (
-        <tbody key={user.login.uuid}>
-          <tr>
+      <tbody>
+        {employees.map(user => (
+          <tr key={user.login.uuid}>
             <th>
               <img src={user.picture.medium && user.picture.medium} alt="thumbnail"/>
             </th>
@@ -49,9 +45,9 @@ console.log(employees);
             <th>{user.location.timezone.description && user.location.timezone.description}</th>
             <th>{user.login.username && user.login.username}</th>
           </tr>
-        </tbody>
-        ))
-      }
+          ))
+        }
+      </tbody>
     </table>
   )
 }
