@@ -1,13 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-const EmployeeTable = ({ users }) => {
+const EmployeeTable = ({ employees, handleSort }) => {
+console.log(employees);
+  // sort.sortByAge(employees);
+  // console.log(employees);
+
   return (
     <table>
       <thead>
         <tr>
           <th>Picture</th>
-          <th>First</th>
-          <th>Last</th>
+          <th>First <button onClick={event => handleSort(event)} name="first">v</button></th>
+          <th>Last <button onClick={event => handleSort(event)} name="last">v</button></th>
           <th>Gender</th>
           <th>DOB</th>
           <th>Age</th>
@@ -23,8 +27,8 @@ const EmployeeTable = ({ users }) => {
           <th>Username</th>
         </tr>
       </thead>
-      {users.results.map(user => (
-        <tbody>
+      {employees.map(user => (
+        <tbody key={user.login.uuid}>
           <tr>
             <th>
               <img src={user.picture.medium && user.picture.medium} alt="thumbnail"/>
