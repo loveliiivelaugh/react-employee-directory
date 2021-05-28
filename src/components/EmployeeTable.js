@@ -1,54 +1,82 @@
 import React from 'react';
+//utility
+import moment from 'moment';
+//material-ui
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+
+const useStyles = makeStyles((theme) => ({
+  table: {
+    minWidth: 650,
+  },
+  large: {
+    width: theme.spacing(7),
+    height: theme.spacing(7),
+  },
+}));
+
 
 const EmployeeTable = ({ employees, handleSort }) => {
+  const classes = useStyles();
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Picture</th>
-          <th>First <button onClick={event => handleSort(event)} name="first">v</button></th>
-          <th>Last <button onClick={event => handleSort(event)} name="last">v</button></th>
-          <th>Gender <button onClick={event => handleSort(event)} name="last">v</button></th>
-          <th>DOB</th>
-          <th>Age <button onClick={event => handleSort(event)} name="age">v</button></th>
-          <th>Email <button onClick={event => handleSort(event)} name="email">v</button></th>
-          <th>Phone <button onClick={event => handleSort(event)} name="phone">v</button></th>
-          <th>Cell <button onClick={event => handleSort(event)} name="cell">v</button></th>
-          <th>Street <button onClick={event => handleSort(event)} name="street">v</button></th>
-          <th>City <button onClick={event => handleSort(event)} name="city">v</button></th>
-          <th>State <button onClick={event => handleSort(event)} name="state">v</button></th>
-          <th>Country <button onClick={event => handleSort(event)} name="country">v</button></th>
-          <th>Postal <button onClick={event => handleSort(event)} name="postal">v</button></th>
-          <th>Timezone</th>
-          <th>Username <button onClick={event => handleSort(event)} name="username">v</button></th>
-        </tr>
-      </thead>
-      <tbody>
+    <TableContainer component={Paper}>
+      <Table className={classes.table} size="small" aria-label="a dense table">
+      <TableHead>
+        <TableRow>
+          <TableCell>Picture</TableCell>
+          <TableCell>First <Button onClick={() => handleSort("first")}><ArrowDropDownIcon /></Button></TableCell>
+          <TableCell>Last <Button onClick={() => handleSort("last")}><ArrowDropDownIcon /></Button></TableCell>
+          <TableCell>Gender</TableCell>
+          <TableCell>DOB</TableCell>
+          <TableCell>Age <Button onClick={() => handleSort("age")}><ArrowDropDownIcon /></Button></TableCell>
+          <TableCell>Email <Button onClick={() => handleSort("email")}><ArrowDropDownIcon /></Button></TableCell>
+          <TableCell>Phone <Button onClick={() => handleSort("phone")}><ArrowDropDownIcon /></Button></TableCell>
+          <TableCell>Cell <Button onClick={() => handleSort("cell")}><ArrowDropDownIcon /></Button></TableCell>
+          <TableCell>Street <Button onClick={() => handleSort("street")}><ArrowDropDownIcon /></Button></TableCell>
+          <TableCell>City <Button onClick={() => handleSort("city")}><ArrowDropDownIcon /></Button></TableCell>
+          <TableCell>State <Button onClick={() => handleSort("state")}><ArrowDropDownIcon /></Button></TableCell>
+          <TableCell>Country <Button onClick={() => handleSort("country")}><ArrowDropDownIcon /></Button></TableCell>
+          <TableCell>Postal <Button onClick={() => handleSort("postal")}><ArrowDropDownIcon /></Button></TableCell>
+          <TableCell>Timezone</TableCell>
+          <TableCell>Username <Button onClick={() => handleSort("username")}><ArrowDropDownIcon /></Button></TableCell>
+        </TableRow>
+      </TableHead>
+      <TableBody>
         {employees.map(user => (
-          <tr key={user.login.uuid}>
-            <th>
-              <img src={user.picture.medium && user.picture.medium} alt="thumbnail"/>
-            </th>
-            <th>{user.name.first && user.name.first}</th>
-            <th>{user.name.last && user.name.last}</th>
-            <th>{user.gender && user.gender}</th>
-            <th>{user.dob.date && user.dob.date}</th>
-            <th>{user.dob.age && user.dob.age}</th>
-            <th>{user.email && user.email}</th>
-            <th>{user.phone && user.phone}</th>
-            <th>{user.cell && user.cell}</th>
-            <th>{user.location.street && user.location.street.number + " " + user.location.street.name}</th>
-            <th>{user.location.city && user.location.city}</th>
-            <th>{user.location.state && user.location.state}</th>
-            <th>{user.location.country && user.location.country}</th>
-            <th>{user.location.postcode && user.location.postcode}</th>
-            <th>{user.location.timezone.description && user.location.timezone.description}</th>
-            <th>{user.login.username && user.login.username}</th>
-          </tr>
+          <TableRow key={user.login.uuid}>
+            <TableCell>
+              <Avatar src={user.picture.medium && user.picture.medium} alt="thumbnail" className={classes.large} />
+            </TableCell>
+            <TableCell>{user.name.first && user.name.first}</TableCell>
+            <TableCell>{user.name.last && user.name.last}</TableCell>
+            <TableCell>{user.gender && user.gender}</TableCell>
+            <TableCell>{user.dob.date && moment(user.dob.date).format('M/D/YYYY')}</TableCell>
+            <TableCell>{user.dob.age && user.dob.age}</TableCell>
+            <TableCell>{user.email && user.email}</TableCell>
+            <TableCell>{user.phone && user.phone}</TableCell>
+            <TableCell>{user.cell && user.cell}</TableCell>
+            <TableCell>{user.location.street && user.location.street.number + " " + user.location.street.name}</TableCell>
+            <TableCell>{user.location.city && user.location.city}</TableCell>
+            <TableCell>{user.location.state && user.location.state}</TableCell>
+            <TableCell>{user.location.country && user.location.country}</TableCell>
+            <TableCell>{user.location.postcode && user.location.postcode}</TableCell>
+            <TableCell>{user.location.timezone.description && user.location.timezone.description}</TableCell>
+            <TableCell>{user.login.username && user.login.username}</TableCell>
+          </TableRow>
           ))
         }
-      </tbody>
-    </table>
+      </TableBody>
+      </Table>
+    </TableContainer>
   )
 }
 
