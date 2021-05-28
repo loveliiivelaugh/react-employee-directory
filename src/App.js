@@ -84,10 +84,35 @@ function App() {
     }
   };
 
+  const find = (items, text) => {
+    text = text.split(' ');
+    return items.filter(item => {
+      return text.every(el => {
+        console.log(el, item)
+        return item.name.first.indexOf(el) ? 
+          item.name.first.indexOf(el) > -1 ||
+          item.name.last.indexOf(el) > -1 ||
+          item.name.first.indexOf(el) > -1 ||
+          item.email.indexOf(el) > -1 ||
+          item.phone.indexOf(el) > -1 ||
+          // item.dob.age.indexOf(el) > -1 || //need to format age to a string
+          item.cell.indexOf(el) > -1 ||
+          item.location.city.indexOf(el) > -1 ||
+          item.location.state.indexOf(el) > -1 ||
+          item.location.country.indexOf(el) > -1 ||
+          item.login.username.indexOf(el) > -1 ||
+          item.location.street.name.indexOf(el) > -1 : 
+          "No items match your search";
+      });
+    });
+  };
+
   const handleSearchFilter = event => {
     event.preventDefault();
-    console.log(event.target.value);
-    setSearchFilter(event.target.value);
+    const search = event.target.value.trim();
+
+    console.log(find([ ...users ], search));
+    setUsers(find([ ...users ], search));
   };
 
   return (
