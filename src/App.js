@@ -262,16 +262,15 @@ function App() {
       <main>
         {/* Hero unit */}
         <div className={classes.heroContent}>
-          <Container maxWidth="sm">
+          <Container maxWidth="lg">
             <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
             Employee Directory
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-              entirely.
+              A small React app using the Randomuser.me API to generate a list of employees to populate to a table. 
+              The table can then be sorted by a number of categories and this app also includes a search bar to enable filtering the table as well. 
+              The styling of the app is handled with MaterialUI and it is deployed using GitHub pages.
             </Typography>
-            {/* <SearchForm handleSearchFilter={handleSearchFilter} /> */}
             {users &&
               <EmployeeTable employees={users} handleSort={handleSort} />
             }
@@ -281,10 +280,10 @@ function App() {
       {/* Footer */}
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
-          Footer
+          Employee Directory
         </Typography>
         <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Something here to give the footer a purpose!
+          A quick and easy way to find and reference your employees!
         </Typography>
         <Copyright />
       </footer>
