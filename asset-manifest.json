@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/loveliiivelaugh/react-employee-directory/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/loveliiivelaugh/react-employee-directory/static/js/main.d9dcb51a.chunk.js",
+    "main.js.map": "/loveliiivelaugh/react-employee-directory/static/js/main.d9dcb51a.chunk.js.map",
+    "runtime-main.js": "/loveliiivelaugh/react-employee-directory/static/js/runtime-main.5a8a9fba.js",
+    "runtime-main.js.map": "/loveliiivelaugh/react-employee-directory/static/js/runtime-main.5a8a9fba.js.map",
+    "static/js/2.b6c61f77.chunk.js": "/loveliiivelaugh/react-employee-directory/static/js/2.b6c61f77.chunk.js",
+    "static/js/2.b6c61f77.chunk.js.map": "/loveliiivelaugh/react-employee-directory/static/js/2.b6c61f77.chunk.js.map",
+    "static/js/3.19ca63b9.chunk.js": "/loveliiivelaugh/react-employee-directory/static/js/3.19ca63b9.chunk.js",
+    "static/js/3.19ca63b9.chunk.js.map": "/loveliiivelaugh/react-employee-directory/static/js/3.19ca63b9.chunk.js.map",
+    "index.html": "/loveliiivelaugh/react-employee-directory/index.html",
+    "static/css/main.9d5b29c0.chunk.css.map": "/loveliiivelaugh/react-employee-directory/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.b6c61f77.chunk.js.LICENSE.txt": "/loveliiivelaugh/react-employee-directory/static/js/2.b6c61f77.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5a8a9fba.js",
+    "static/js/2.b6c61f77.chunk.js",
+    "static/css/main.9d5b29c0.chunk.css",
+    "static/js/main.d9dcb51a.chunk.js"
+  ]
+}
