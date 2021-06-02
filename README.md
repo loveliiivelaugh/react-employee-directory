@@ -8,9 +8,9 @@ A small React app using the Randomuser.me API to generate a list of employees to
 
 ## Screenshots
 
-[Screenshot 1](public/screenshot1.png)
+[Screenshot 1](/public/screenshot1.png)
 
-[Screenshot 2](public/screenshot2.png)
+[Screenshot 2](/public/screenshot2.png)
 
 ## Installation
 
